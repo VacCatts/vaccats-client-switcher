@@ -1,7 +1,7 @@
 # vaccat's osu client switcher
 🍉 an osu client switcher made in C# 🍉
 
-how to use:
+how to use: <br>
 install and unzip the zip file from releases tab <br>
 open osu-client-switcher.exe <br>
 go to settings and set ur osu folder <br>
