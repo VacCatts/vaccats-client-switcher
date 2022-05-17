@@ -27,13 +27,21 @@ namespace osu_client_switcher
                 MessageBox.Show("created settings file, please set your osu! folder in the settings", "osu! client switcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // load stuff
-            SettingsLoader.LoadSettings();
-            ClientManager.LoadClients();
+            try
+            {
+                // load stuff
+                SettingsLoader.LoadSettings();
+                ClientManager.LoadClients();
 
-            // setup client selector
-            selectedclientindex.Maximum = ClientManager.loadindex;
-            selectedclientLabel.Text = "selected: " + ClientManager.name[(int)selectedclientindex.Value];
+                // setup client selector
+                selectedclientindex.Maximum = ClientManager.loadindex;
+                selectedclientLabel.Text = "selected: " + ClientManager.name[(int)selectedclientindex.Value];
+
+            }
+            catch
+            {
+
+            }
         }
 
         private void backupcurrentfiles_Click(object sender, EventArgs e)
