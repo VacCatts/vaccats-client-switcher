@@ -37,6 +37,7 @@ namespace osu_client_switcher
             this.launchButton = new Siticone.UI.WinForms.SiticoneButton();
             this.selectedclientindex = new Siticone.UI.WinForms.SiticoneRoundedNumericUpDown();
             this.selectedclientLabel = new Siticone.UI.WinForms.SiticoneLabel();
+            this.argsbox = new Siticone.UI.WinForms.SiticoneTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.selectedclientindex)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,11 +141,39 @@ namespace osu_client_switcher
             this.selectedclientLabel.TabIndex = 5;
             this.selectedclientLabel.Text = "selected: ";
             // 
+            // argsbox
+            // 
+            this.argsbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.argsbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.argsbox.DefaultText = "";
+            this.argsbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.argsbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.argsbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.argsbox.DisabledState.Parent = this.argsbox;
+            this.argsbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.argsbox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.argsbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.argsbox.FocusedState.Parent = this.argsbox;
+            this.argsbox.ForeColor = System.Drawing.Color.White;
+            this.argsbox.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.argsbox.HoveredState.Parent = this.argsbox;
+            this.argsbox.Location = new System.Drawing.Point(88, 204);
+            this.argsbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.argsbox.Name = "argsbox";
+            this.argsbox.PasswordChar = '\0';
+            this.argsbox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.argsbox.PlaceholderText = "custom args";
+            this.argsbox.SelectedText = "";
+            this.argsbox.ShadowDecoration.Parent = this.argsbox;
+            this.argsbox.Size = new System.Drawing.Size(296, 29);
+            this.argsbox.TabIndex = 6;
+            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(600, 261);
+            this.Controls.Add(this.argsbox);
             this.Controls.Add(this.selectedclientLabel);
             this.Controls.Add(this.selectedclientindex);
             this.Controls.Add(this.launchButton);
@@ -173,6 +202,7 @@ namespace osu_client_switcher
         private Siticone.UI.WinForms.SiticoneButton launchButton;
         private Siticone.UI.WinForms.SiticoneRoundedNumericUpDown selectedclientindex;
         private Siticone.UI.WinForms.SiticoneLabel selectedclientLabel;
+        private Siticone.UI.WinForms.SiticoneTextBox argsbox;
     }
 }
 

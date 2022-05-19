@@ -60,7 +60,7 @@ namespace osu_client_switcher
         {
             // load client
             if (!((int)selectedclientindex.Value == ClientManager.loadindex)) // custom client selected
-                ClientManager.LoadClientToOsuFolderRun(ClientManager.name[(int)selectedclientindex.Value]);
+                ClientManager.LoadClientToOsuFolderRun(ClientManager.name[(int)selectedclientindex.Value], argsbox.Text);
         }
 
         private void selectedclientindex_ValueChanged(object sender, EventArgs e)

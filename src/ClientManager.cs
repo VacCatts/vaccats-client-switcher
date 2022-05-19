@@ -96,16 +96,16 @@ namespace osu_client_switcher
             }
         }
 
-        public static void LoadClientToOsuFolderRun(string name)
+        public static void LoadClientToOsuFolderRun(string name, string args)
         {
             // create new thread to execute LoadClientToOsuFolder()
-            Thread thread = new Thread(() => LoadClientToOsuFolder(name));
+            Thread thread = new Thread(() => LoadClientToOsuFolder(name, args));
             thread.Start();
 
             MessageBox.Show("starting client", "osu! client switcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public static void LoadClientToOsuFolder(string name)
+        public static void LoadClientToOsuFolder(string name, string args)
         {
             name = name.Remove(0, 8);
             var dir = Directory.GetCurrentDirectory() + "\\clients\\" + name;
@@ -136,7 +136,7 @@ namespace osu_client_switcher
 
             // run osu! client
             try {
-                Process.Start(SettingsLoader.filepath + "/osu!.exe");
+                Process.Start(SettingsLoader.filepath + "/osu!.exe ", args);
             } catch(Exception ex) {
                 MessageBox.Show("error while starting game: " + ex.Message, "osu! client switcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
