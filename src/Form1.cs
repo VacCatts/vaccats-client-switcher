@@ -7,6 +7,7 @@ namespace osu_client_switcher
 {
     public partial class main : Form
     {
+        public int version = 12;
         public main()
         {
             InitializeComponent();
@@ -14,12 +15,41 @@ namespace osu_client_switcher
 
         private void main_Load(object sender, EventArgs e)
         {
+            // check for updates ((fuck me this code is mess))
+            var temp = NetworkManager.DownloadText("https://github.com/VacCatts/vaccats-client-switcher/raw/main/version.txt");
+            if (temp == null)
+            {
+                temp = NetworkManager.DownloadText("https://github.com/VacCatts/vaccats-client-switcher/raw/main/version.txt");
+            }
+            int temp2 = 0;
+            Console.Write(temp);
+            temp2 = int.Parse(temp);
+            if (temp2 != 0)
+            {
+                try {
+                    if (temp2 > version)
+                    {
+                        if (MessageBox.Show("new version available!", "osu! client switcher", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                        {
+                            Process.Start("https://github.com/VacCatts/vaccats-client-switcher/releases/");
+                            Application.Exit();
+                        }
+                    }
+                } catch { }
+            } else
+            {
+                MessageBox.Show("error while checking updates", "osu! client switcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             // do cool fade in animation
             siticoneAnimateWindow1.SetAnimateWindow(this, Siticone.UI.WinForms.SiticoneAnimateWindow.AnimateWindowType.AW_BLEND, 150);
 
             // check for settings.txt file
             if (!File.Exists("settings.txt"))
             {
+                // join discord
+                Process.Start("https://discord.gg/MaKghXuEWg");
+
                 // create settings.txt file
                 File.Create("settings.txt");
 
