@@ -51,7 +51,7 @@ namespace osu_client_switcher
             closeonlaunchCurrently.Text = SettingsLoader.closeOnLaunch.ToString();
         }
 
-        private void backupButton_Click(object sender, EventArgs e)
+        public void backupButton_Click(object sender, EventArgs e)
         {
             // save important files from osu! folder to backup folder
             if (!Directory.Exists("backup"))
@@ -82,7 +82,7 @@ namespace osu_client_switcher
             MessageBox.Show("done backing up", "osu! client switcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void loadbackupButton_Click(object sender, EventArgs e)
+        public void loadbackupButton_Click(object sender, EventArgs e)
         {
             // load osu files from backup folder
             if (Directory.Exists("backup"))

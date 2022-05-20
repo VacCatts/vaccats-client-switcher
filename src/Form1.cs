@@ -89,14 +89,28 @@ namespace osu_client_switcher
         private void launchButton_Click(object sender, EventArgs e)
         {
             // load client
-            if (!((int)selectedclientindex.Value == ClientManager.loadindex)) // custom client selected
+            if ((int)selectedclientindex.Value != ClientManager.loadindex) // custom client selected
                 ClientManager.LoadClientToOsuFolderRun(ClientManager.name[(int)selectedclientindex.Value], argsbox.Text);
+            else
+            {
+                var temp = "e";
+                SettingsForm sform = new SettingsForm();
+                sform.loadbackupButton_Click(temp, EventArgs.Empty);
+                try
+                {
+                    Process.Start(SettingsLoader.filepath + "/osu!.exe ", argsbox.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error while starting game: " + ex.Message, "osu! client switcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void selectedclientindex_ValueChanged(object sender, EventArgs e)
         {
             if ((int)selectedclientindex.Value == ClientManager.loadindex)
-                selectedclientLabel.Text = "selected: no custom client";
+                selectedclientLabel.Text = "selected: load from backup";
             else
                 selectedclientLabel.Text = "selected: " + ClientManager.name[(int)selectedclientindex.Value];
         }
